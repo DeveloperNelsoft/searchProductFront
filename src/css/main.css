@@ -1,0 +1,11 @@
+.button-margin {
+    margin: 5px 5px 5px 0px !important;
+}
+
+.product-item {
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+    border: 1px solid #DDDDDD !important;
+    height: 250px !important;
+    max-width: 230px;
+}
