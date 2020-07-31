@@ -27,16 +27,28 @@ export default class ProductsTable extends Component<ProductsTableProps, Product
         };
     }
     componentWillMount() {
-        fetch('https://searchproductback/product',
+
+        // const urlBackend = `https://www.getonbrd.com/search/jobs?q=${term}`;
+        // getAxios.instance('').get(urlBackend).then((result) => result.data)
+        // .then((arryJob) => {
+        //     console.log('api itemJob result: ', arryJob.jobs);
+        //     setSearching(false);
+        //     setSearchResults(arryJob.jobs);
+        // }).catch((error) => {
+        //     console.log('error: ', error);
+        //     setSearching(false);
+        //     setSearchResults(error.message);
+        // });
+
+        fetch('http://localhost:4050/product',
           {
             headers: {
-              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzZTE3ZDQyLWVkZjQtNDBmOS1iY2U1LTc5NjFjMjM5NmZjZiIsImVtYWlsIjoiaXZhbi5taXJzb25AY2VuY29zdWQuY2wiLCJmaXJzdF9uYW1lIjoiSXZhbiIsImxhc3RfbmFtZSI6Ik1pcnNvbiIsInNlbGxlcl9pZCI6bnVsbCwicm9sZSI6ImFkbWluIiwicGVybWlzc2lvbnMiOltdLCJpYXQiOjE1NjYzMjg4MTQsImV4cCI6MTU5ODExNDEyNywiaXNzIjoiRWlmZmVsIn0.w1vY3Rb6Rp_wBBTaojBRYurMhtiWwgH63nbIPXPm5A0',
               'Content-Type': 'application/json'
             }
           })
             .then(response => response.json())
             .then(responseData => {
-                this.setState({ productsList: responseData as ProductsTableRow[], loading: false })
+                this.setState({ productsList: responseData.slice(1, 20) as ProductsTableRow[], loading: false })
             })
             .catch(error => {
                 console.log("Error loading data", error);

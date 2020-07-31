@@ -41,7 +41,7 @@ export default class ProductItem extends Component<ProductItemProps, ProductItem
             {productItem.price}
               </Grid>
             <Grid item xs={6}>
-            description: {productItem.fdescription}
+            description: {productItem.description}
               </Grid>
           </Grid>
         </Grid>

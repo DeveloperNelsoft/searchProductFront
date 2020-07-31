@@ -10,6 +10,7 @@
     "@types/react": "16.8.25",
     "@types/react-dom": "16.8.5",
     "@types/react-router-dom": "^4.3.4",
+    "axios": "^0.19.2",
     "material-snackbar-supplier": "^1.0.1",
     "material-table": "^1.48.0",
     "react": "^16.8.6",
@@ -17,7 +18,7 @@
     "react-loading": "^2.0.3",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "typescript": "3.5.3"
+    "typescript": "^3.8.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -28,16 +28,15 @@ constructor(props: ProductsListGridProps) {
   };
 }
 componentWillMount() {
-  fetch('https://searchproductback/product',
+  fetch('http://localhost:4050/product',
     {
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUzZTE3ZDQyLWVkZjQtNDBmOS1iY2U1LTc5NjFjMjM5NmZjZiIsImVtYWlsIjoiaXZhbi5taXJzb25AY2VuY29zdWQuY2wiLCJmaXJzdF9uYW1lIjoiSXZhbiIsImxhc3RfbmFtZSI6Ik1pcnNvbiIsInNlbGxlcl9pZCI6bnVsbCwicm9sZSI6ImFkbWluIiwicGVybWlzc2lvbnMiOltdLCJpYXQiOjE1NjYzMjg4MTQsImV4cCI6MTU5ODExNDEyNywiaXNzIjoiRWlmZmVsIn0.w1vY3Rb6Rp_wBBTaojBRYurMhtiWwgH63nbIPXPm5A0',
         'Content-Type': 'application/json'
       }
     })
     .then(response => response.json())
     .then(responseData => {
-      this.setState({ productsList: responseData as ProductGridItem[], loading: false })
+      this.setState({ productsList: responseData.slice(1, 20) as ProductGridItem[], loading: false })
     })
     .catch(error => {
       console.log("Error loading data", error);
