@@ -36,7 +36,7 @@ componentWillMount() {
     })
     .then(response => response.json())
     .then(responseData => {
-      this.setState({ productsList: responseData.slice(1, 20) as ProductGridItem[], loading: false })
+      this.setState({ productsList: responseData as ProductGridItem[], loading: false })
     })
     .catch(error => {
       console.log("Error loading data", error);

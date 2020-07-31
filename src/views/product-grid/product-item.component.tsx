@@ -31,7 +31,7 @@ export default class ProductItem extends Component<ProductItemProps, ProductItem
             </Grid>
           </Grid>
           <Grid item xs={12}>
-            <img src={productItem.image} width={200} height={160} />
+            <img src={`https://${productItem.image}`} width={200} height={160} />
           </Grid>
           <Grid item xs={12} style={{ backgroundColor: "#DDDDDD" }}>
             id or sku: {productItem.id}

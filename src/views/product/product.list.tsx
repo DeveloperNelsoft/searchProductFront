@@ -48,7 +48,7 @@ export default class ProductsTable extends Component<ProductsTableProps, Product
           })
             .then(response => response.json())
             .then(responseData => {
-                this.setState({ productsList: responseData.slice(1, 20) as ProductsTableRow[], loading: false })
+                this.setState({ productsList: responseData as ProductsTableRow[], loading: false })
             })
             .catch(error => {
                 console.log("Error loading data", error);
@@ -101,7 +101,7 @@ export default class ProductsTable extends Component<ProductsTableProps, Product
         return (
             <Container>
                 <Box my={2}>
-                    <Link to="/product-grid/" >Ver Grid</Link>
+                    <Link to="/" >Ver Grid</Link>
                 </Box>
                 <Box my={12}>
                     <Typography variant="h4" component="h1" gutterBottom>
