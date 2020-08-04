@@ -29,11 +29,21 @@ const reducer = (state, action) => {
                 product: action.data,
             }
         case types.ADD_PRODUCT:
-            return {}
+            const id = Math.random().toString();
+            return {
+                ...state,
+                product: [...state.product, action.data],
+            }
         case types.UPDATE_PRODUCT:
-            return {}
+            return {
+                ...state,
+                product: action.data,
+            }
         case types.DELETE_PRODUCT:
-            return {}
+            return {
+                ...state,
+                product: action.data,
+            }
         case types.LOADING:
             return {
                 ...state,

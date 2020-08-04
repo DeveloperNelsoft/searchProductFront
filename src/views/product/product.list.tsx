@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MaterialTable from "material-table";
 import Paper from '@material-ui/core/Paper';
@@ -21,6 +21,8 @@ interface ProductsTableProps { }
 
 const ProductsTable: React.SFC<ProductsTableState> = props => {
     const [state, dispatch] = productReducer();
+
+    const [currentProductId, setCurrentProductId,] = useState('');
 
     useEffect(() => {
         dispatch({type: types.LOADING,});
@@ -93,15 +95,47 @@ const ProductsTable: React.SFC<ProductsTableState> = props => {
     }
 
     const addProduct = (event:any) => {
+        const textNewProduct = `newProduct ${state.product.length + 1} `;
+
+        const newProduct = {
+            id: state.product.length + 1,        
+            brand: textNewProduct,
+            description: textNewProduct,
+            image: "none",
+            price: `${state.product.length + 1} `,
+        };
+
+        dispatch({type: types.ADD_PRODUCT, data: newProduct });
 
     }
 
     const udateProduct = (event:any) => {
         
+        const updatedProduct = `product updated ${currentProductId} `;
+    
+        const updProduct = [...state.product
+            .map( (z: any,i: number) =>  i === 
+            (parseInt( currentProductId,10) - 1) ? z = 
+            {   id:  z.id,  
+                brand: updatedProduct,
+                description: updatedProduct,
+                image: z.image,
+                price: z.price, 
+            }
+            : z  )];
+
+        dispatch({type: types.UPDATE_PRODUCT, data: updProduct });
     }
 
     const deleteProduct = (event:any) => {
-        
+
+        const deletProduct = [...state.product.filter( (x:any, i:number) =>  parseInt(x.id,10) !== parseInt(currentProductId,10)  )];
+
+        dispatch({type: types.DELETE_PRODUCT, data: deletProduct });
+    }
+
+    const takeProductId = (event) => {
+            setCurrentProductId(event.target.value);
     }
 
     return (
@@ -114,9 +148,17 @@ const ProductsTable: React.SFC<ProductsTableState> = props => {
                      <Typography variant="h4" component="h1" gutterBottom>
                          {`Lista de productos ` }
                      </Typography>
-                     <button onClick={(event: any) => addProduct(event)} > ADDD </button>
-                     <button onClick={(event:any) => udateProduct(event)} > UPDATE </button>
-                     <button onClick={(event:any) => deleteProduct(event)} > DELETE </button>
+                     <div>
+                            <span>id to edit or delete: </span>
+                            <input value={currentProductId} 
+                                    onChange={takeProductId} >
+                            </input>
+                        </div>
+                     <div>
+                         <button onClick={(event: any) => addProduct(event)} > ADD </button>
+                        <button onClick={(event:any) => udateProduct(event)} > UPDATE </button>
+                        <button onClick={(event:any) => deleteProduct(event)} > DELETE </button>
+                     </div>
                      {configContent()}
                  </Box>
              </Container>
