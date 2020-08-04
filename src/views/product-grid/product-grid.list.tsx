@@ -56,7 +56,7 @@ render() {
   return (
     <Container>
       <Box my={2}>
-        <Link to="/product/" >Ver Lista</Link>
+        <Link to="/" >Ver Lista</Link>
       </Box>
       <Box my={12}>
         <Typography variant="h4" component="h1" gutterBottom>

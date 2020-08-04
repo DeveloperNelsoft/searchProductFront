@@ -9,8 +9,8 @@ export default function Router() {
         <SnackBarSupplier settings={{ autoHideDuration: 1500 }}>
             <BrowserRouter>
                 {/* <Route exact path="/product-grid" component={ProductsListGrid} /> */}
-                <Route exact path="/" component={ProductsListGrid} />
-                <Route exact path="/product" component={ProductsList} />
+                <Route exact path="/product" component={ProductsListGrid} />
+                <Route exact path="/" component={ProductsList} />
             </BrowserRouter>
         </SnackBarSupplier>
     );
