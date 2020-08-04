@@ -149,16 +149,18 @@ const ProductsTable: React.SFC<ProductsTableState> = props => {
                          {`Lista de productos ` }
                      </Typography>
                      <div>
-                            <span>id to edit or delete: </span>
-                            <input value={currentProductId} 
-                                    onChange={takeProductId} >
-                            </input>
-                        </div>
-                     <div>
-                         <button onClick={(event: any) => addProduct(event)} > ADD </button>
-                        <button onClick={(event:any) => udateProduct(event)} > UPDATE </button>
-                        <button onClick={(event:any) => deleteProduct(event)} > DELETE </button>
+                                <span>(mini local CRUD over global state using useReducer hooks example )  id to edit or delete: </span>
+                                <input value={currentProductId}   onChange={takeProductId} />
+                                <span> - </span>
+                                <button onClick={(event: any) => addProduct(event)} > ADD </button>
+                                <span> - </span>
+                                <button onClick={(event:any) => udateProduct(event)} > UPDATE </button>
+                                <span> - </span>
+                                <button onClick={(event:any) => deleteProduct(event)} > DELETE </button>
+                                <br></br>
+                                <br></br>
                      </div>
+                    
                      {configContent()}
                  </Box>
              </Container>
