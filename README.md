@@ -2,7 +2,7 @@
 
 ## Available Scripts
 
-Search products in React. In the project directory, you can run:
+Search products in React (mini local CRUD over global state using useReducer hooks example ). In the project directory, you can run:
 
 ### `npm  install`
 
